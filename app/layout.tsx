@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Dog sitting • Walking • Check-ins",
   icons: {
     icon: "/logosvg.svg",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "DogManny.com",
