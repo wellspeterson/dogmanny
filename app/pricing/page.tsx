@@ -416,7 +416,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="svc-cta">
                   <a
-                    href={`sms:+19795876387&body=${encodeURIComponent(s.smsBody)}`}
+                    href={`sms:+19795876387?&body=${encodeURIComponent(s.smsBody)}`}
                     className="btn btn-grad"
                     style={{ width: "100%" }}
                   >
@@ -460,7 +460,7 @@ export default function ServicesPage() {
           <h2>Not sure which to pick?</h2>
           <p>Just text me what you're looking for and I'll help you figure out the best fit for your dog's needs.</p>
           <div className="cta-actions">
-            <a href="sms:+19795876387&body=Hi Wells! I have a question about your services." className="btn btn-grad">
+            <a href="sms:+19795876387?&body=Hi Wells! I have a question about your services." className="btn btn-grad">
               Text Wells
             </a>
             <Link href="/#pricing" className="btn-outline-light">View Pricing</Link>

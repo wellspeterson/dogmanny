@@ -578,7 +578,7 @@ export default function DogMannyPage() {
         <h1>Dog care that feels <span className="grad-text">personal.</span></h1>
         <p>Walking, vacation sitting, and check-ins from someone who genuinely loves animals. Just text me — no apps, no strangers, no hassle.</p>
         <div className="hero-actions">
-          <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">Text to Book</a>
+          <a href="sms:+19795876387?&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">Text to Book</a>
         <Link href="/pricing" className="btn btn-outline">See Services & Pricing</Link>
         </div>
         {/* Hero photo */}
@@ -702,7 +702,7 @@ export default function DogMannyPage() {
           <div className="pay-row">
             {["Venmo","Zelle","Cash"].map(m => <span className="pay-chip" key={m}>{m}</span>)}
           </div>
-          <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care for my pup." className="btn btn-grad" style={{width:"100%"}}>
+          <a href="sms:+19795876387?&body=Hi Wells! I'd like to book dog care for my pup." className="btn btn-grad" style={{width:"100%"}}>
             Text Wells Now →
           </a>
         </div>
