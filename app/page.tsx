@@ -6,6 +6,16 @@ import Link from "next/link";
 export default function DogMannyPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [aboutSlide, setAboutSlide] = useState(0);
+
+  const aboutPhotos = [
+    { src: "/wells-cavapoo-indoor.jpeg", alt: "Wells with cavapoo" },
+    { src: "/wells-walking-dogs.jpeg", alt: "Wells walking dogs" },
+    { src: "/wells-pomeranian-puppy.jpeg", alt: "Pomeranian puppy" },
+    { src: "/wells-hiking.jpeg", alt: "Wells hiking with a dog" },
+    { src: "/wells-pomeranian-outdoors.jpeg", alt: "Pomeranian outdoors" },
+    { src: "/wells-white-dog-couch.jpeg", alt: "White dog relaxing on couch" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -15,9 +25,13 @@ export default function DogMannyPage() {
     meta.name = "color-scheme";
     meta.content = "light only";
     document.head.appendChild(meta);
+    const slideTimer = setInterval(() => {
+      setAboutSlide(prev => (prev + 1) % 6);
+    }, 2000);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.head.removeChild(meta);
+      clearInterval(slideTimer);
     };
   }, []);
 
@@ -465,32 +479,39 @@ export default function DogMannyPage() {
         .footer-links a:hover { color: var(--dark); }
         .footer-copy { font-size: 0.7rem; color: #bbb; }
 
-        /* PHOTO GALLERY */
-        .gallery-wrap { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; text-align: center; }
-        .gallery-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: auto auto;
-          gap: 0.75rem;
-          margin-top: 2.25rem;
-        }
-        .gallery-grid .gallery-item:nth-child(1) {
-          grid-column: 1 / 3;
-          grid-row: 1 / 3;
-        }
-        .gallery-item {
-          border-radius: 1rem;
-          overflow: hidden;
-          aspect-ratio: 1;
+        /* ABOUT SLIDESHOW */
+        .about-slideshow {
           position: relative;
+          width: 100%; height: 100%;
+          border-radius: 1.25rem;
+          overflow: hidden;
         }
-        .gallery-grid .gallery-item:nth-child(1) { aspect-ratio: auto; }
-        .gallery-item img {
+        .about-slideshow img {
+          position: absolute;
+          inset: 0;
           width: 100%; height: 100%;
           object-fit: cover;
-          transition: transform 0.4s ease;
+          object-position: center top;
+          opacity: 0;
+          transition: opacity 0.8s ease;
         }
-        .gallery-item:hover img { transform: scale(1.05); }
+        .about-slideshow img.active { opacity: 1; }
+        .slide-dots {
+          position: absolute;
+          bottom: 0.75rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 0.4rem;
+          z-index: 2;
+        }
+        .slide-dots span {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.5);
+          transition: background 0.3s;
+        }
+        .slide-dots span.active { background: #fff; }
 
         @media (max-width: 720px) {
           .nav-links, nav > a.btn { display: none; }
@@ -500,8 +521,6 @@ export default function DogMannyPage() {
           .contact-grid { grid-template-columns: 1fr; }
           .trust-bar { gap: 1rem; }
           footer { flex-direction: column; align-items: flex-start; }
-          .gallery-grid { grid-template-columns: 1fr 1fr; }
-          .gallery-grid .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; aspect-ratio: 16/9; }
         }
       `}</style>
 
@@ -561,9 +580,18 @@ export default function DogMannyPage() {
       {/* ABOUT */}
       <div id="about" className="about-wrap">
         <div className="about-inner">
-          {/* About photo */}
+          {/* About photo slideshow */}
           <div className="about-photo">
-            <img src="/wells-cavapoo-indoor.jpeg" alt="Wells" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top',borderRadius:'1.25rem'}} />
+            <div className="about-slideshow">
+              {aboutPhotos.map(({ src, alt }, i) => (
+                <img key={src} src={src} alt={alt} className={i === aboutSlide ? "active" : ""} />
+              ))}
+              <div className="slide-dots">
+                {aboutPhotos.map((_, i) => (
+                  <span key={i} className={i === aboutSlide ? "active" : ""} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="about-text">
             <span className="section-tag">About</span>
@@ -577,26 +605,6 @@ export default function DogMannyPage() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* PHOTO GALLERY */}
-      <div className="gallery-wrap">
-        <span className="section-tag">Gallery</span>
-        <h2 style={{fontFamily:"'Sora',sans-serif",fontSize:"clamp(1.6rem,3vw,2.25rem)",fontWeight:700,letterSpacing:"-0.03em",color:"var(--dark)",marginBottom:"0.6rem"}}>Happy pups, every visit.</h2>
-        <p style={{fontSize:"0.92rem",color:"var(--mid)",lineHeight:1.7,fontWeight:300}}>A few favorites from recent walks and visits.</p>
-        <div className="gallery-grid">
-          {[
-            { src: "/wells-walking-dogs.jpeg", alt: "Wells walking dogs" },
-            { src: "/wells-pomeranian-puppy.jpeg", alt: "Pomeranian puppy" },
-            { src: "/wells-hiking.jpeg", alt: "Wells hiking with a dog" },
-            { src: "/wells-pomeranian-outdoors.jpeg", alt: "Pomeranian outdoors" },
-            { src: "/wells-white-dog-couch.jpeg", alt: "White dog relaxing on couch" },
-          ].map(({ src, alt }) => (
-            <div className="gallery-item" key={src}>
-              <img src={src} alt={alt} />
-            </div>
-          ))}
         </div>
       </div>
 
