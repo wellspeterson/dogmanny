@@ -270,7 +270,7 @@ export default function PrivacyPage() {
         </Link>
         <ul className="nav-links">
           <li><Link href="/#about">About</Link></li>
-          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/pricing">Services & Pricing</Link></li>
           <li><Link href="/reviews">Reviews</Link></li>
           <li><Link href="/privacy" className="active">Client Privacy</Link></li>
           <li><Link href="/#contact">Contact</Link></li>
@@ -283,7 +283,7 @@ export default function PrivacyPage() {
 
       {/* MOBILE MENU */}
       <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
-        {[["About","/#about"],["Services & Pricing","/services"],["Reviews","/reviews"],["Client Privacy","/privacy"],["Contact","/#contact"]].map(([label, href]) => (
+        {[["About","/#about"],["Services & Pricing","/pricing"],["Reviews","/reviews"],["Client Privacy","/privacy"],["Contact","/#contact"]].map(([label, href]) => (
           <Link key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
         ))}
         <Link href="/#contact" className="btn btn-grad" onClick={() => setMenuOpen(false)}>Book Now</Link>
@@ -345,7 +345,7 @@ export default function PrivacyPage() {
         </Link>
         <ul className="footer-links">
           <li><Link href="/#about">About</Link></li>
-          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/pricing">Services & Pricing</Link></li>
           <li><Link href="/reviews">Reviews</Link></li>
           <li><Link href="/privacy">Client Privacy</Link></li>
           <li><Link href="/#contact">Contact</Link></li>
