@@ -465,6 +465,33 @@ export default function DogMannyPage() {
         .footer-links a:hover { color: var(--dark); }
         .footer-copy { font-size: 0.7rem; color: #bbb; }
 
+        /* PHOTO GALLERY */
+        .gallery-wrap { padding: 5rem 2rem; max-width: 960px; margin: 0 auto; text-align: center; }
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: auto auto;
+          gap: 0.75rem;
+          margin-top: 2.25rem;
+        }
+        .gallery-grid .gallery-item:nth-child(1) {
+          grid-column: 1 / 3;
+          grid-row: 1 / 3;
+        }
+        .gallery-item {
+          border-radius: 1rem;
+          overflow: hidden;
+          aspect-ratio: 1;
+          position: relative;
+        }
+        .gallery-grid .gallery-item:nth-child(1) { aspect-ratio: auto; }
+        .gallery-item img {
+          width: 100%; height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.05); }
+
         @media (max-width: 720px) {
           .nav-links, nav > a.btn { display: none; }
           .hamburger { display: flex; }
@@ -473,6 +500,8 @@ export default function DogMannyPage() {
           .contact-grid { grid-template-columns: 1fr; }
           .trust-bar { gap: 1rem; }
           footer { flex-direction: column; align-items: flex-start; }
+          .gallery-grid { grid-template-columns: 1fr 1fr; }
+          .gallery-grid .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; aspect-ratio: 16/9; }
         }
       `}</style>
 
@@ -548,6 +577,26 @@ export default function DogMannyPage() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* PHOTO GALLERY */}
+      <div className="gallery-wrap">
+        <span className="section-tag">Gallery</span>
+        <h2 style={{fontFamily:"'Sora',sans-serif",fontSize:"clamp(1.6rem,3vw,2.25rem)",fontWeight:700,letterSpacing:"-0.03em",color:"var(--dark)",marginBottom:"0.6rem"}}>Happy pups, every visit.</h2>
+        <p style={{fontSize:"0.92rem",color:"var(--mid)",lineHeight:1.7,fontWeight:300}}>A few favorites from recent walks and visits.</p>
+        <div className="gallery-grid">
+          {[
+            { src: "/wells-walking-dogs.jpeg", alt: "Wells walking dogs" },
+            { src: "/wells-pomeranian-puppy.jpeg", alt: "Pomeranian puppy" },
+            { src: "/wells-hiking.jpeg", alt: "Wells hiking with a dog" },
+            { src: "/wells-pomeranian-outdoors.jpeg", alt: "Pomeranian outdoors" },
+            { src: "/wells-white-dog-couch.jpeg", alt: "White dog relaxing on couch" },
+          ].map(({ src, alt }) => (
+            <div className="gallery-item" key={src}>
+              <img src={src} alt={alt} />
+            </div>
+          ))}
         </div>
       </div>
 
