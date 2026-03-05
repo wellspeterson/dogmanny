@@ -329,7 +329,7 @@ export default function PrivacyPage() {
           <h2>I believe in full transparency.</h2>
           <p>If you have any questions or concerns about how I handle your privacy and security, don't hesitate to reach out directly.</p>
           <div className="contact-row">
-            <a href="sms:+19795876387&body=Hi Wells! I have a question about client privacy." className="btn btn-grad">
+            <a href="sms:+19795876387?&body=Hi Wells! I have a question about client privacy." className="btn btn-grad">
               Text Wells
             </a>
             <a href="mailto:AustinDogManny@gmail.com" className="btn-outline-light">Send an Email</a>

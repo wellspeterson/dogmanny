@@ -313,7 +313,7 @@ export default function ReviewsPage() {
           <span className="section-tag">Ready to join them?</span>
           <h2>Book your first visit.</h2>
           <p>Text me your dog's name, what you need, and your dates — I'll get back to you fast.</p>
-          <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">
+          <a href="sms:+19795876387?&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">
             Text Wells Now →
           </a>
         </div>
