@@ -51,6 +51,7 @@ export default function ServicesPage() {
       desc: "Whether your dog needs a casual stroll or a brisk adventure, I match the pace to what they need that day. Every walk includes a photo update.",
       includes: [],
       ideal: "",
+      smsBody: "Hi Wells! I'd like to book a Dog Walk.",
     },
     {
       icon: "🐾",
@@ -63,6 +64,7 @@ export default function ServicesPage() {
       desc: "Need someone to pop in while you're out? I'll handle feedings, potty breaks, and anything else your pup needs — then send you a photo so you can get back to your day.",
       includes: [],
       ideal: "",
+      smsBody: "Hi Wells! I'd like to book a check-in.",
     },
     {
       icon: "🌙",
@@ -76,6 +78,7 @@ export default function ServicesPage() {
       desc: "I stay at your home overnight so your dog has a familiar, comfortable environment the whole time. Includes hanging out throughout the day, a 30-min walk, and unlimited plant watering.",
       includes: [],
       ideal: "",
+      smsBody: "Hi Wells! I'd like to book for Overnight Sitting. What does your availability look like? (Specify your dates)",
     },
     {
       icon: "🏠",
@@ -88,6 +91,7 @@ export default function ServicesPage() {
       desc: "Going out of town for 2+ days? Includes 4 total home visits per day, a 30-min walk, feedings, and unlimited plant watering. Single-day visits billed at the standard $25 rate. Add-on visits available at $25 each.",
       includes: [],
       ideal: "",
+      smsBody: "Hi Wells! I'd like to book for Check-in Sitting. What does your availability look like? (Specify your dates)",
     },
   ];
 
@@ -412,7 +416,7 @@ export default function ServicesPage() {
                 </div>
                 <div className="svc-cta">
                   <a
-                    href={`sms:+19795876387&body=Hi Wells! I'd like to book ${s.title}.`}
+                    href={`sms:+19795876387&body=${encodeURIComponent(s.smsBody)}`}
                     className="btn btn-grad"
                     style={{ width: "100%" }}
                   >

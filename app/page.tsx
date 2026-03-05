@@ -573,7 +573,7 @@ export default function DogMannyPage() {
       <section className="hero">
         <div className="hero-badge">
           <div className="badge-dot" />
-          Now accepting new clients in Austin
+          Now accepting new clients in West Austin
         </div>
         <h1>Dog care that feels <span className="grad-text">personal.</span></h1>
         <p>Walking, sitting, and check-ins from someone who genuinely loves dogs. Just text me — no apps, no strangers, no hassle.</p>
