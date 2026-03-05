@@ -6,6 +6,16 @@ import Link from "next/link";
 export default function DogMannyPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [aboutSlide, setAboutSlide] = useState(0);
+
+  const aboutPhotos = [
+    { src: "/wells-cavapoo-indoor.jpeg", alt: "Wells with cavapoo" },
+    { src: "/wells-walking-dogs.jpeg", alt: "Wells walking dogs" },
+    { src: "/wells-pomeranian-puppy.jpeg", alt: "Pomeranian puppy" },
+    { src: "/wells-hiking.jpeg", alt: "Wells hiking with a dog" },
+    { src: "/wells-pomeranian-outdoors.jpeg", alt: "Pomeranian outdoors" },
+    { src: "/wells-white-dog-couch.jpeg", alt: "White dog relaxing on couch" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 30);
@@ -15,9 +25,13 @@ export default function DogMannyPage() {
     meta.name = "color-scheme";
     meta.content = "light only";
     document.head.appendChild(meta);
+    const slideTimer = setInterval(() => {
+      setAboutSlide(prev => (prev + 1) % 6);
+    }, 2000);
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.head.removeChild(meta);
+      clearInterval(slideTimer);
     };
   }, []);
 
@@ -465,6 +479,40 @@ export default function DogMannyPage() {
         .footer-links a:hover { color: var(--dark); }
         .footer-copy { font-size: 0.7rem; color: #bbb; }
 
+        /* ABOUT SLIDESHOW */
+        .about-slideshow {
+          position: relative;
+          width: 100%; height: 100%;
+          border-radius: 1.25rem;
+          overflow: hidden;
+        }
+        .about-slideshow img {
+          position: absolute;
+          inset: 0;
+          width: 100%; height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          opacity: 0;
+          transition: opacity 0.8s ease;
+        }
+        .about-slideshow img.active { opacity: 1; }
+        .slide-dots {
+          position: absolute;
+          bottom: 0.75rem;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 0.4rem;
+          z-index: 2;
+        }
+        .slide-dots span {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.5);
+          transition: background 0.3s;
+        }
+        .slide-dots span.active { background: #fff; }
+
         @media (max-width: 720px) {
           .nav-links, nav > a.btn { display: none; }
           .hamburger { display: flex; }
@@ -532,9 +580,18 @@ export default function DogMannyPage() {
       {/* ABOUT */}
       <div id="about" className="about-wrap">
         <div className="about-inner">
-          {/* About photo */}
+          {/* About photo slideshow */}
           <div className="about-photo">
-            <img src="/wells-cavapoo-indoor.jpeg" alt="Wells" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top',borderRadius:'1.25rem'}} />
+            <div className="about-slideshow">
+              {aboutPhotos.map(({ src, alt }, i) => (
+                <img key={src} src={src} alt={alt} className={i === aboutSlide ? "active" : ""} />
+              ))}
+              <div className="slide-dots">
+                {aboutPhotos.map((_, i) => (
+                  <span key={i} className={i === aboutSlide ? "active" : ""} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="about-text">
             <span className="section-tag">About</span>
