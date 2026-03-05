@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function ServicesPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -342,18 +343,18 @@ export default function ServicesPage() {
 
       {/* NAV */}
       <nav className={scrolled ? "scrolled" : ""}>
-        <a href="/" className="logo">
+        <Link href="/" className="logo">
           <img src="/logosvg.svg" alt="DogManny" style={{height:"32px",width:"auto"}} />
           <span className="logo-text">DogManny</span>
-        </a>
+        </Link>
         <ul className="nav-links">
-          <li><a href="/#about">About</a></li>
-          <li><a href="/services" className="active">Services & Pricing</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/privacy">Client Privacy</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/services" className="active">Services & Pricing</Link></li>
+          <li><Link href="/reviews">Reviews</Link></li>
+          <li><Link href="/privacy">Client Privacy</Link></li>
+          <li><Link href="/#contact">Contact</Link></li>
         </ul>
-        <a href="/#contact" className="btn btn-dark">Book Now</a>
+        <Link href="/#contact" className="btn btn-dark">Book Now</Link>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Open menu">
           <span /><span /><span />
         </button>
@@ -362,9 +363,9 @@ export default function ServicesPage() {
       {/* MOBILE MENU */}
       <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
         {[["About","/#about"],["Services & Pricing","/services"],["Reviews","/reviews"],["Client Privacy","/privacy"],["Contact","/#contact"]].map(([label, href]) => (
-          <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
+          <Link key={label} href={href} onClick={() => setMenuOpen(false)}>{label}</Link>
         ))}
-        <a href="/#contact" className="btn btn-grad" onClick={() => setMenuOpen(false)}>Book Now</a>
+        <Link href="/#contact" className="btn btn-grad" onClick={() => setMenuOpen(false)}>Book Now</Link>
       </div>
 
       {/* PAGE HEADER */}
@@ -458,23 +459,23 @@ export default function ServicesPage() {
             <a href="sms:+19795876387&body=Hi Wells! I have a question about your services." className="btn btn-grad">
               Text Wells
             </a>
-            <a href="/#pricing" className="btn-outline-light">View Pricing</a>
+            <Link href="/#pricing" className="btn-outline-light">View Pricing</Link>
           </div>
         </div>
       </div>
 
       {/* FOOTER */}
       <footer>
-        <a href="/" className="footer-logo">
+        <Link href="/" className="footer-logo">
           <img src="/logosvg.svg" alt="DogManny" style={{height:"26px",width:"auto"}} />
           <span>DogManny</span>
-        </a>
+        </Link>
         <ul className="footer-links">
-          <li><a href="/#about">About</a></li>
-          <li><a href="/services">Services & Pricing</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/privacy">Client Privacy</a></li>
-          <li><a href="/#contact">Contact</a></li>
+          <li><Link href="/#about">About</Link></li>
+          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/reviews">Reviews</Link></li>
+          <li><Link href="/privacy">Client Privacy</Link></li>
+          <li><Link href="/#contact">Contact</Link></li>
         </ul>
         <p className="footer-copy">© {new Date().getFullYear()} DogManny · Austin, TX</p>
       </footer>
