@@ -576,7 +576,7 @@ export default function DogMannyPage() {
           Now accepting new clients in West Austin
         </div>
         <h1>Dog care that feels <span className="grad-text">personal.</span></h1>
-        <p>Walking, sitting, and check-ins from someone who genuinely loves dogs. Just text me — no apps, no strangers, no hassle.</p>
+        <p>Walking, vacation sitting, and check-ins from someone who genuinely loves dogs. Just text me — no apps, no strangers, no hassle.</p>
         <div className="hero-actions">
           <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">Text to Book</a>
         <Link href="/services" className="btn btn-outline">See Services & Pricing</Link>
