@@ -248,7 +248,7 @@ export default function DogMannyPage() {
         .hero-img {
           margin: 3.5rem auto 0;
           max-width: 640px; width: 100%;
-          aspect-ratio: 4/3;
+          aspect-ratio: 4/3.5;
           border-radius: 1.25rem;
           overflow: hidden;
           border: 1px solid var(--border);
@@ -583,7 +583,7 @@ export default function DogMannyPage() {
         </div>
         {/* Hero photo */}
         <div className="hero-img">
-          <img src="/wells-golden-patio.jpeg" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 40%'}} alt="Wells with a golden retriever" />
+          <img src="/wells-golden-patio.jpeg" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 35%'}} alt="Wells with a golden retriever" />
         </div>
       </section>
 
