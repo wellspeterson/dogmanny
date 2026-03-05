@@ -34,7 +34,7 @@ export default function DogMannyPage() {
         if (entry.isIntersecting && !slideTimerRef.current) {
           slideTimerRef.current = setInterval(() => {
             setAboutSlide(prev => (prev + 1) % 6);
-          }, 3000);
+          }, 2500);
         } else if (!entry.isIntersecting && slideTimerRef.current) {
           clearInterval(slideTimerRef.current);
           slideTimerRef.current = null;
@@ -613,7 +613,7 @@ export default function DogMannyPage() {
           <div className="about-text">
             <span className="section-tag">About</span>
             <h2 style={{fontFamily:"'Sora',sans-serif",fontSize:"1.75rem",fontWeight:700,letterSpacing:"-0.03em",marginBottom:"1rem",color:"var(--dark)"}}>Hi, I'm Wells.</h2>
-            <p>I'm a 24-year-old Austin local with a genuine love for dogs. I started DogManny to offer something the big platforms can't — a real, consistent person who learns your dog's personality and treats them like family.</p>
+            <p>I'm a 25-year-old Austin local with a genuine love for dogs. I started DogManny to offer something the big platforms can't — a real, consistent person who learns your dog's personality and treats them like family.</p>
             <p>No rotating strangers, no app scheduling. Just send me a text and I'll take care of the rest — with photo updates every visit so you always know they're in good hands.</p>
             <p>I understand that entrusting someone with your home is a big decision. For more information, visit the <Link href="/privacy" style={{color:"var(--teal)",textDecoration:"underline",fontWeight:500}}>Client Privacy page</Link>.</p>
             <div className="pills">
