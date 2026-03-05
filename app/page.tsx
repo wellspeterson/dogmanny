@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function DogMannyPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [aboutSlide, setAboutSlide] = useState(0);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const slideTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const aboutPhotos = [
     { src: "/wells-cavapoo-indoor.jpeg", alt: "Wells with cavapoo" },
@@ -25,13 +27,28 @@ export default function DogMannyPage() {
     meta.name = "color-scheme";
     meta.content = "light only";
     document.head.appendChild(meta);
-    const slideTimer = setInterval(() => {
-      setAboutSlide(prev => (prev + 1) % 6);
-    }, 2000);
+
+    // Start slideshow only when about section is visible
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !slideTimerRef.current) {
+          slideTimerRef.current = setInterval(() => {
+            setAboutSlide(prev => (prev + 1) % 6);
+          }, 2000);
+        } else if (!entry.isIntersecting && slideTimerRef.current) {
+          clearInterval(slideTimerRef.current);
+          slideTimerRef.current = null;
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (aboutRef.current) observer.observe(aboutRef.current);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.head.removeChild(meta);
-      clearInterval(slideTimer);
+      if (slideTimerRef.current) clearInterval(slideTimerRef.current);
+      observer.disconnect();
     };
   }, []);
 
@@ -231,7 +248,7 @@ export default function DogMannyPage() {
         .hero-img {
           margin: 3.5rem auto 0;
           max-width: 640px; width: 100%;
-          aspect-ratio: 16/9;
+          aspect-ratio: 4/3;
           border-radius: 1.25rem;
           overflow: hidden;
           border: 1px solid var(--border);
@@ -578,7 +595,7 @@ export default function DogMannyPage() {
       </div>
 
       {/* ABOUT */}
-      <div id="about" className="about-wrap">
+      <div id="about" className="about-wrap" ref={aboutRef}>
         <div className="about-inner">
           {/* About photo slideshow */}
           <div className="about-photo">
