@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 export default function DogMannyPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -484,9 +485,9 @@ export default function DogMannyPage() {
         </a>
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
-          <li><a href="/services">Services & Pricing</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/privacy">Client Privacy</a></li>
+          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/reviews">Reviews</Link></li>
+          <li><Link href="/privacy">Client Privacy</Link></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#contact" className="btn btn-dark">Book Now</a>
@@ -498,7 +499,7 @@ export default function DogMannyPage() {
       {/* MOBILE MENU */}
       <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
         {["About", "Services & Pricing", "Reviews", "Client Privacy", "Contact"].map(p => (
-          <a key={p} href={p === "Services & Pricing" ? "/services" : p === "Client Privacy" ? "/privacy" : p === "Reviews" ? "/reviews" : `#${p.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{p}</a>
+          <Link key={p} href={p === "Services & Pricing" ? "/services" : p === "Client Privacy" ? "/privacy" : p === "Reviews" ? "/reviews" : `#${p.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{p}</Link>
         ))}
         <a href="#contact" className="btn btn-grad" onClick={() => setMenuOpen(false)}>Book Now</a>
       </div>
@@ -513,7 +514,7 @@ export default function DogMannyPage() {
         <p>Walking, sitting, and check-ins from someone who genuinely loves dogs. Just text me — no apps, no strangers, no hassle.</p>
         <div className="hero-actions">
           <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">Text to Book</a>
-        <a href="/services" className="btn btn-outline">See Services & Pricing</a>
+        <Link href="/services" className="btn btn-outline">See Services & Pricing</Link>
         </div>
         {/* Hero photo */}
         <div className="hero-img">
@@ -540,7 +541,7 @@ export default function DogMannyPage() {
             <h2 style={{fontFamily:"'Sora',sans-serif",fontSize:"1.75rem",fontWeight:700,letterSpacing:"-0.03em",marginBottom:"1rem",color:"var(--dark)"}}>Hi, I'm Wells.</h2>
             <p>I'm a 24-year-old Austin local with a genuine love for dogs. I started DogManny to offer something the big platforms can't — a real, consistent person who learns your dog's personality and treats them like family.</p>
             <p>No rotating strangers, no app scheduling. Just send me a text and I'll take care of the rest — with photo updates every visit so you always know they're in good hands.</p>
-            <p>I understand that entrusting someone with your home is a big decision. For more information, visit the <a href="/privacy" style={{color:"var(--teal)",textDecoration:"underline",fontWeight:500}}>Client Privacy page</a>.</p>
+            <p>I understand that entrusting someone with your home is a big decision. For more information, visit the <Link href="/privacy" style={{color:"var(--teal)",textDecoration:"underline",fontWeight:500}}>Client Privacy page</Link>.</p>
             <div className="pills">
               {["📍 West Austin","📖 Texas A&M","✈️ Loves traveling","🏠 Respectful of your home","🍔 P. Terry's fan!"].map(p => (
                 <span className="pill" key={p}>{p}</span>
@@ -570,7 +571,7 @@ export default function DogMannyPage() {
           ))}
         </div>
         <div style={{textAlign:"center", marginTop:"2rem"}}>
-          <a href="/services" className="btn btn-dark">View Full Services & Pricing →</a>
+          <Link href="/services" className="btn btn-dark">View Full Services & Pricing →</Link>
         </div>
       </section>
 
@@ -595,7 +596,7 @@ export default function DogMannyPage() {
             ))}
           </div>
           <div style={{textAlign:"center"}}>
-            <a href="/services" className="btn btn-dark">Full Details & Booking →</a>
+            <Link href="/services" className="btn btn-dark">Full Details & Booking →</Link>
           </div>
         </div>
       </div>
@@ -641,9 +642,9 @@ export default function DogMannyPage() {
         </a>
         <ul className="footer-links">
           <li><a href="/#about">About</a></li>
-          <li><a href="/services">Services & Pricing</a></li>
-          <li><a href="/reviews">Reviews</a></li>
-          <li><a href="/privacy">Client Privacy</a></li>
+          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/reviews">Reviews</Link></li>
+          <li><Link href="/privacy">Client Privacy</Link></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
         <p className="footer-copy">© {new Date().getFullYear()} DogManny · Austin, TX</p>
