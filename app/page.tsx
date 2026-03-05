@@ -34,7 +34,7 @@ export default function DogMannyPage() {
         if (entry.isIntersecting && !slideTimerRef.current) {
           slideTimerRef.current = setInterval(() => {
             setAboutSlide(prev => (prev + 1) % 6);
-          }, 2000);
+          }, 3000);
         } else if (!entry.isIntersecting && slideTimerRef.current) {
           clearInterval(slideTimerRef.current);
           slideTimerRef.current = null;
@@ -583,7 +583,7 @@ export default function DogMannyPage() {
         </div>
         {/* Hero photo */}
         <div className="hero-img">
-          <img src="/wells-golden-patio.jpeg" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center top'}} alt="Wells with a golden retriever" />
+          <img src="/wells-golden-patio.jpeg" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 60%'}} alt="Wells with a golden retriever" />
         </div>
       </section>
 
