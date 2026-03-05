@@ -283,7 +283,7 @@ export default function ReviewsPage() {
       <div className="page-header">
         <span className="section-tag">Reviews</span>
         <h1>What clients <span className="grad-text">are saying.</span></h1>
-        <p>All 5-star reviews from verified Austin clients.</p>
+        <p>All reviews from verified Austin clients.</p>
       </div>
 
       {/* SUMMARY BAR */}

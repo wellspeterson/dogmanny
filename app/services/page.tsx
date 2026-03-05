@@ -48,7 +48,7 @@ export default function ServicesPage() {
       per: "per 30-min walk · up to 3 dogs",
       color: "#EEF3FF",
       accent: "#3B6FE8",
-      desc: "Whether your dog needs a casual stroll or a brisk adventure, I match the pace to what they need that day. Every walk includes a photo update.",
+      desc: "Whether your dog needs a casual stroll or a brisk adventure, I match the pace to what they need that day. Every walk includes a photo update. Weekly recurring walks are available upon request.",
       includes: [],
       ideal: "",
       smsBody: "Hi Wells! I'd like to book a Dog Walk.",

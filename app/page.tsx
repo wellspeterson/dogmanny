@@ -589,7 +589,7 @@ export default function DogMannyPage() {
 
       {/* TRUST BAR */}
       <div className="trust-bar">
-        {[["✦","West Austin based"],["📸","Photos every visit"],["1:1","One dedicated caretaker"],["💬","Replies ASAP"],["🏡","At-home care"]].map(([icon,label]) => (
+        {[["🤠","West Austin based"],["📸","Photos every visit"],["1:1","One dedicated caretaker"],["💬","Replies ASAP"],["🏡","At-home care"]].map(([icon,label]) => (
           <div className="trust-item" key={label as string}><span>{icon}</span><span>{label}</span></div>
         ))}
       </div>
