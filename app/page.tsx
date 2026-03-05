@@ -550,7 +550,7 @@ export default function DogMannyPage() {
         </a>
         <ul className="nav-links">
           <li><a href="#about">About</a></li>
-          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/pricing">Services & Pricing</Link></li>
           <li><Link href="/reviews">Reviews</Link></li>
           <li><Link href="/privacy">Client Privacy</Link></li>
           <li><a href="#contact">Contact</a></li>
@@ -564,7 +564,7 @@ export default function DogMannyPage() {
       {/* MOBILE MENU */}
       <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
         {["About", "Services & Pricing", "Reviews", "Client Privacy", "Contact"].map(p => (
-          <Link key={p} href={p === "Services & Pricing" ? "/services" : p === "Client Privacy" ? "/privacy" : p === "Reviews" ? "/reviews" : `#${p.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{p}</Link>
+          <Link key={p} href={p === "Services & Pricing" ? "/pricing" : p === "Client Privacy" ? "/privacy" : p === "Reviews" ? "/reviews" : `#${p.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{p}</Link>
         ))}
         <a href="#contact" className="btn btn-grad" onClick={() => setMenuOpen(false)}>Book Now</a>
       </div>
@@ -579,7 +579,7 @@ export default function DogMannyPage() {
         <p>Walking, vacation sitting, and check-ins from someone who genuinely loves dogs. Just text me — no apps, no strangers, no hassle.</p>
         <div className="hero-actions">
           <a href="sms:+19795876387&body=Hi Wells! I'd like to book dog care." className="btn btn-grad">Text to Book</a>
-        <Link href="/services" className="btn btn-outline">See Services & Pricing</Link>
+        <Link href="/pricing" className="btn btn-outline">See Services & Pricing</Link>
         </div>
         {/* Hero photo */}
         <div className="hero-img">
@@ -645,7 +645,7 @@ export default function DogMannyPage() {
           ))}
         </div>
         <div style={{textAlign:"center", marginTop:"2rem"}}>
-          <Link href="/services" className="btn btn-dark">View Full Services & Pricing →</Link>
+          <Link href="/pricing" className="btn btn-dark">View Full Services & Pricing →</Link>
         </div>
       </section>
 
@@ -670,7 +670,7 @@ export default function DogMannyPage() {
             ))}
           </div>
           <div style={{textAlign:"center"}}>
-            <Link href="/services" className="btn btn-dark">Full Details & Booking →</Link>
+            <Link href="/pricing" className="btn btn-dark">Full Details & Booking →</Link>
           </div>
         </div>
       </div>
@@ -716,7 +716,7 @@ export default function DogMannyPage() {
         </a>
         <ul className="footer-links">
           <li><a href="/#about">About</a></li>
-          <li><Link href="/services">Services & Pricing</Link></li>
+          <li><Link href="/pricing">Services & Pricing</Link></li>
           <li><Link href="/reviews">Reviews</Link></li>
           <li><Link href="/privacy">Client Privacy</Link></li>
           <li><a href="/#contact">Contact</a></li>
